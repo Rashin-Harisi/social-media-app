@@ -16,7 +16,7 @@ const EditPost = () => {
           <p className='h3-bold md:h2-bold text-left w-full'>Edit Post</p>
         </div>
 
-        <PostForm action="update" post={post}/>
+        <PostForm action="Update" post={post}/>
       </div>
     </div>
   )
