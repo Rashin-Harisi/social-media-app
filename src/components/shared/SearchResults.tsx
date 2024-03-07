@@ -1,10 +1,11 @@
-import { Models } from "appwrite"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import Loader from "./Loader"
 import GridPostList from "./GridPostList"
 
 type SearchResultsProps={
   isSearchFetching : boolean ,
-  searchedPosts: Models.Document[],
+  searchedPosts: any,
 }
 
 const SearchResults = ({isSearchFetching, searchedPosts} : SearchResultsProps) => {
