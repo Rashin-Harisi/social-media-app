@@ -12,6 +12,7 @@ import { INewPost, INewUser, IUpdatePost } from '@/types';
 import { QUERY_KEYS } from './queryKeys';
 
 
+
 export const  useCreateUserAccount= ()=>{
     return useMutation({
         mutationFn: (user: INewUser)=> createUserAccount(user)
@@ -151,14 +152,16 @@ export const useDeletePost = ()=>{
 export const useGetPosts = () =>{
     return useInfiniteQuery({
         queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-        queryFn: getInfinitePosts,
-        getNextPageParam : (lastPage)=>{
+        queryFn: getInfinitePosts as any,
+        initialPageParam: 0 ,
+        getNextPageParam : (lastPage : any)=>{
             if(lastPage && lastPage.documents.length === 0 ) {
                 return null;
             }
             const lastId = lastPage?.documents[lastPage?.documents.length -1].$id;
             return lastId;
         },
+        
                 
     });
 };
